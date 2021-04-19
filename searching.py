@@ -31,6 +31,17 @@ def linear_search(sequence, number):
     return {"position": indices, "count": count}
 
 
+def pattern_search(sekvence, vzor):
+    positions = set()
+    idx = 0
+    j = idx + 3
+    while j < len(sekvence):
+        antikodon = sekvence[idx : j]
+        idx += 1
+        j += 1
+        if antikodon == vzor:
+            positions.add(idx)
+    return positions
 
 
 
@@ -44,6 +55,8 @@ def main():
     print(sequence)
     results = linear_search(sequence, 0)
     print(results)
+    dna_sequence = pattern_search(sequence, "ATA")
+    print(dna_sequence)
 
 
 if __name__ == '__main__':
